@@ -60,7 +60,7 @@ function Navbar() {
          }
       }
     }
-  }, [users, user]);
+  }, [users, user, setCurrentUserRole, setRoleLoaded]);
 
   // Log loading and error states
   useEffect(() => {

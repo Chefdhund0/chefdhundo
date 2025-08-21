@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -79,9 +80,11 @@ const ResumeTemplate: React.FC<ResumeTemplateProps> = ({ data, onDownloadPDF }) 
             </div>
           </div>
           <div className="w-24 h-24 border-4 border-red-500 bg-black rounded-full flex items-center justify-center print:w-20 print:h-20 transform rotate-12 overflow-hidden">
-            <img 
+            <Image 
               src="/website/icons/cheflogo.webp" 
               alt="Chef Logo" 
+              width={64}
+              height={64}
               className="w-16 h-16 print:w-14 print:h-14 object-contain"
             />
           </div>
