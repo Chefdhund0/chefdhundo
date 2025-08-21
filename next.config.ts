@@ -1,13 +1,8 @@
 import type { NextConfig } from "next";
 
-// Validate environment variables at build time
-if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-  console.warn('⚠️  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is not set. Build may fail.');
-}
-
 const nextConfig: NextConfig = {
   env: {
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: 'pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k',
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
   },
   images: {

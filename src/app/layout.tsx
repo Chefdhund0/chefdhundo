@@ -6,7 +6,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from '@clerk/nextjs';
-import { env } from '@/lib/env';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,21 +19,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Check if Clerk keys are available
-  const publishableKey = env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  // Hardcoded Clerk publishable key for build
+  const publishableKey = 'pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k';
   
-  // Add more detailed logging for debugging
-  console.log('🔍 Environment check in layout:');
-  console.log('🔍 NODE_ENV:', process.env.NODE_ENV);
-  console.log('🔍 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY exists:', !!publishableKey);
-  console.log('🔍 Key length:', publishableKey ? publishableKey.length : 0);
-  
-  if (!publishableKey) {
-    console.warn('❌ Clerk publishable key not found. Authentication features will not work.');
-    console.warn('❌ This will cause build failures in production.');
-  } else {
-    console.log('✅ Clerk publishable key found and ready');
-  }
+  console.log('✅ Using hardcoded Clerk publishable key for build');
 
   return (
     <ClerkProvider publishableKey={publishableKey}>

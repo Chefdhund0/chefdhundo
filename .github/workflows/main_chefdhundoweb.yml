@@ -14,9 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
-    env:
-      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
-      CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
 
     steps:
       - uses: actions/checkout@v4
@@ -28,17 +25,7 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          echo "Checking environment variables..."
-          if [ -n "$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" ]; then
-            echo "✅ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is set"
-          else
-            echo "❌ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY is NOT set"
-          fi
-          if [ -n "$CLERK_SECRET_KEY" ]; then
-            echo "✅ CLERK_SECRET_KEY is set"
-          else
-            echo "❌ CLERK_SECRET_KEY is NOT set"
-          fi
+          echo "Building with hardcoded Clerk key..."
           npm install
           npm run build --if-present
           npm run test --if-present
