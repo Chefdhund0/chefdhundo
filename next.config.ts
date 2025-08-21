@@ -1,10 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  env: {
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: 'pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k',
-    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
-  },
   images: {
     remotePatterns: [
       {
@@ -21,7 +17,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  output: 'standalone',
 };
 
 export default nextConfig;
