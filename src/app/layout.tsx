@@ -6,6 +6,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from '@clerk/nextjs';
+import { env } from '@/lib/env';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +20,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Check if Clerk keys are available
+  const publishableKey = env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  
+  if (!publishableKey) {
+    console.warn('Clerk publishable key not found. Authentication features will not work.');
+  }
+
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={publishableKey}>
       <html lang="en">
         <body className={inter.className}>
           <Navbar />
