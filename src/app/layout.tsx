@@ -21,6 +21,29 @@ export default function RootLayout({
 }>) {
   const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
+  // If publishable key is not available, render without Clerk
+  if (!publishableKey) {
+    return (
+      <html lang="en">
+        <body className={inter.className}>
+          <Navbar />
+          {children}
+          <Toaster
+            toastOptions={{
+              classNames: {
+                toast: 'bg-white border-gray-200',
+                title: 'text-black',
+                description: 'text-gray-600',
+                actionButton: 'bg-gray-800 text-white',
+                cancelButton: 'bg-gray-200 text-black',
+              },
+            }}
+          />
+        </body>
+      </html>
+    );
+  }
+
   return (
     <ClerkProvider 
       publishableKey={publishableKey}
