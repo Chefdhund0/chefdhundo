@@ -42,8 +42,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 #check coz this is test key
-#NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k
-#CLERK_SECRET_KEY=sk_live_dPEggA3WTXenYdQXLSz39F7hWzodpul5QdAWf62XeK
+#NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+#CLERK_SECRET_KEY=
 
 CASHFREE_CLIENT_ID=
 CASHFREE_CLIENT_SECRET=
