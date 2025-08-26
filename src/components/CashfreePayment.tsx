@@ -247,9 +247,17 @@ const CashfreePayment: React.FC<CashfreePaymentProps> = ({
            const method = (window.Cashfree as Record<string, (...args: unknown[]) => unknown>)[checkoutMethod];
            const result = method.call(window.Cashfree, checkoutOptions);
            
+           // Type guard to check if result is a Promise
+           const isPromise = (value: unknown): value is Promise<CheckoutResponse> => {
+             return value !== null && 
+                    typeof value === 'object' && 
+                    'then' in value && 
+                    typeof (value as Promise<unknown>).then === 'function';
+           };
+           
            // Handle promise-based results
-           if (result && typeof result === 'object' && 'then' in result && typeof (result as any).then === 'function') {
-             (result as Promise<CheckoutResponse>).then((response: CheckoutResponse) => {
+           if (isPromise(result)) {
+             result.then((response: CheckoutResponse) => {
                console.log('✅ Payment initiated:', response);
              }).catch((error: Error) => {
                console.error('❌ Payment initiation failed:', error);
