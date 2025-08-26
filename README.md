@@ -1,4 +1,6 @@
-# Getting Started
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
 
 First, run the development server:
 
@@ -57,4 +59,11 @@ NEXT_PUBLIC_CASHFREE_APP_URL=
 
 NOTION_RESUMEDBSUB_INT=
 NOTION_RESUMEDBSUB_ID=
+
+# For Google Forms (Method 1)
+GOOGLE_FORM_ID=your_form_id_here
+
+# For Google Sheets (Method 2)
+GOOGLE_SERVICE_ACCOUNT_KEY_FILE=path/to/your/key.json
+GOOGLE_SHEET_ID=your_sheet_id_here
 ```

@@ -248,7 +248,7 @@ const CashfreePayment: React.FC<CashfreePaymentProps> = ({
            const result = method.call(window.Cashfree, checkoutOptions);
            
            // Handle promise-based results
-           if (result && typeof result === 'object' && 'then' in result && typeof (result as Promise<unknown>).then === 'function') {
+           if (result && typeof result === 'object' && 'then' in result && typeof (result as any).then === 'function') {
              (result as Promise<CheckoutResponse>).then((response: CheckoutResponse) => {
                console.log('✅ Payment initiated:', response);
              }).catch((error: Error) => {
