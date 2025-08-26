@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: 'The page you are looking for does not exist.',
 }
  
+// eslint-disable-next-line @next/next/no-html-link-for-pages
 export default function GlobalNotFound() {
   return (
     <html>
@@ -46,8 +47,9 @@ export default function GlobalNotFound() {
               margin: '0 0 2rem 0',
               fontSize: '1.125rem'
             }}>
-              Sorry, we couldn't find the page you're looking for.
+              Sorry, we couldn&apos;t find the page you&apos;re looking for.
             </p>
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a 
               href="/" 
               style={{
