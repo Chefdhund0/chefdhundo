@@ -19,13 +19,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Hardcoded Clerk publishable key for build
-  const publishableKey = 'pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k';
-  
-  console.log('✅ Using hardcoded Clerk publishable key for build');
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
   return (
-    <ClerkProvider publishableKey={publishableKey}>
+    <ClerkProvider 
+      publishableKey={publishableKey}
+      clerkJSUrl="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+    >
       <html lang="en">
         <body className={inter.className}>
           <Navbar />

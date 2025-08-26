@@ -5,12 +5,8 @@ export const env = {
 
 // Validate required environment variables
 export function validateEnv() {
-  const required = ['NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY'];
-  
-  for (const key of required) {
-    if (!process.env[key]) {
-      console.warn(`Missing required environment variable: ${key}`);
-    }
+  if (!env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
+    console.warn('Missing required environment variable: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY');
   }
 }
 

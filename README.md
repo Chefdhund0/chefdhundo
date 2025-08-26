@@ -40,6 +40,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
 CLERK_SECRET_KEY=
 #check coz this is test key
+#NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_live_Y2xlcmsuY2hlZmRodW5kby5jb20k
+#CLERK_SECRET_KEY=sk_live_dPEggA3WTXenYdQXLSz39F7hWzodpul5QdAWf62XeK
 
 CASHFREE_CLIENT_ID=
 CASHFREE_CLIENT_SECRET=
@@ -51,12 +53,8 @@ NOTION_USERDB_ID=
 NOTION_RESUMEDB_INT=
 NOTION_RESUMEDB_ID=
 
-NEXT_PUBLIC_APP_URL=
+NEXT_PUBLIC_CASHFREE_APP_URL=
 
-# For Google Forms (Method 1)
-GOOGLE_FORM_ID=your_form_id_here
-
-# For Google Sheets (Method 2)
-GOOGLE_SERVICE_ACCOUNT_KEY_FILE=path/to/your/key.json
-GOOGLE_SHEET_ID=your_sheet_id_here
+NOTION_RESUMEDBSUB_INT=
+NOTION_RESUMEDBSUB_ID=
 ```
