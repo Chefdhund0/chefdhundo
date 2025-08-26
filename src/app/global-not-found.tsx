@@ -12,11 +12,59 @@ export const metadata: Metadata = {
  
 export default function GlobalNotFound() {
   return (
-    <html lang="en" className={inter.className}>
+    <html>
       <body>
-        <h1>404 - Page Not Found</h1>
-        <p>This page does not exist.</p>
+        <div style={{ 
+          margin: 0, 
+          padding: 0, 
+          fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif',
+          backgroundColor: '#f9fafb',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh'
+        }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{ 
+              fontSize: '6rem', 
+              fontWeight: 'bold', 
+              margin: '0 0 1rem 0',
+              color: '#111827'
+            }}>
+              404
+            </h1>
+            <h2 style={{ 
+              fontSize: '2rem', 
+              fontWeight: '600', 
+              margin: '0 0 1rem 0',
+              color: '#374151'
+            }}>
+              Page Not Found
+            </h2>
+            <p style={{ 
+              color: '#6b7280', 
+              margin: '0 0 2rem 0',
+              fontSize: '1.125rem'
+            }}>
+              Sorry, we couldn't find the page you're looking for.
+            </p>
+            <a 
+              href="/" 
+              style={{
+                backgroundColor: '#f97316',
+                color: 'white',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '0.375rem',
+                textDecoration: 'none',
+                fontWeight: '500',
+                display: 'inline-block'
+              }}
+            >
+              Go Back Home
+            </a>
+          </div>
+        </div>
       </body>
     </html>
-  )
+  );
 }
