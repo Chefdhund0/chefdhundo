@@ -21,6 +21,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Add these configurations to help with prerendering
+  // Ensure proper static generation
+  trailingSlash: false,
+  // Handle prerendering errors gracefully
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
 };
 
 export default nextConfig;
