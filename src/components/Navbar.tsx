@@ -6,7 +6,46 @@ import Image from 'next/image'
 import { useAuth, SignInButton, UserButton, useUser } from '@clerk/nextjs'
 import { useUserStore, useUsers, useUserLoading, useUserError, useCurrentUserRole, useIsRoleLoaded } from '@/store/userStore'
 
+// Wrapper component that handles Clerk availability
 function Navbar() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    // Show a simple navbar during SSR/build time
+    return (
+      <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/website/home/logo.png"
+                  alt="Chef Dhundo"
+                  width={120}
+                  height={40}
+                  className="h-8 w-auto"
+                />
+              </Link>
+            </div>
+            <div className="hidden md:flex items-center space-x-8">
+              <Link href="/" className="text-gray-700 hover:text-gray-900">Home</Link>
+              <Link href="/findchefs" className="text-gray-700 hover:text-gray-900">Find Chef</Link>
+              <Link href="/dashboard" className="text-gray-700 hover:text-gray-900">Dashboard</Link>
+            </div>
+          </div>
+        </nav>
+      </header>
+    )
+  }
+
+  return <NavbarContent />
+}
+
+function NavbarContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { isSignedIn } = useAuth()
   const { user } = useUser()
